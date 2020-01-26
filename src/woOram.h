@@ -15,4 +15,16 @@ class WoOramDataStore
     void display_holding_area();
 };
 
+
+class WoOram
+{
+    private: 
+    int write_access_counter = 0;
+    WoOramDataStore *wooram = new WoOramDataStore;
+
+    public:
+    void write(int, int);
+    int read(int);
+};
+
 #endif
