@@ -15,3 +15,9 @@ void WoOramDataStore::display_holding_area()
     for(int i=0; i<n; i++)
         cout<<"Address : "<<i<<", Data : "<<main_area[i]<<endl;
 }
+
+int WoOramDataStore::get_pos(int logical_address)
+{
+    int physical_address = position_map.at(logical_address);
+    return physical_address;
+}

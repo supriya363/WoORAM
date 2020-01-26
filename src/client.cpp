@@ -8,6 +8,7 @@ int main()
 {
     WoOram *w = new WoOram();
     w->write(0,100);
-    int val = w->read(2);
+    int val = w->read(0);
+    cout<<"Value read ->"<<val<<endl;
     return 0;
 }

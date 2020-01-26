@@ -9,10 +9,12 @@ class WoOramDataStore
 {
     public:
     int N = STORAGE_SIZE/2;
-    vector<int> main_area;
-    vector<int> holding_area;
+    vector<int> main_area = vector<int>(N);
+    vector<int> holding_area = vector<int>(N);
+    map<int, int> position_map;
     void display_main_area();
     void display_holding_area();
+    int get_pos(int);
 };
 
 
