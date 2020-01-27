@@ -99,9 +99,33 @@ void test()
 
 }
 
+void write_access(vector<int> &arr, WoOram *w, int address, int newdata)
+{
+    w->write(address, newdata);
+    arr[address] = newdata;
+}
+
+void test2()
+{
+    int size = STORAGE_SIZE * NbyM_FACTOR; 
+    vector<int> simple_array(size);
+    WoOram *w = new WoOram();
+    for(int i=0; i<500000; i++)
+    {
+        cout<<"Access Number ->"<<i<<endl;
+        int addr = rand()%(size);
+        int data = rand();
+        cout<<addr<<"::"<<data<<endl;
+        write_access(simple_array, w, addr, data);
+        check_reads(simple_array, w);
+    }
+
+    cout<<"All assertions passed"<<endl;
+}
 int main()
 {
     // see_access_pattern();
-    test();
+    // test();
+    test2();
     return 0;
 }
