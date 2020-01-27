@@ -8,9 +8,10 @@ using namespace std;
 class WoOramDataStore
 {
     public:
+    WoOramDataStore();
     const int N = STORAGE_SIZE/2;
     vector<int> physical_storage = vector<int>(STORAGE_SIZE);
-    map<int, int> position_map;
+    vector<int> position_map = vector<int>(N);
     void display_main_area();
     void display_holding_area();
     int get_pos(int);

@@ -4,20 +4,27 @@
 
 using namespace std;
 
-int main()
+void test()
 {
     WoOram *w = new WoOram();
     w->write(2,200);
     w->write(1,100);
     w->write(3,300);
     w->write(4,400);
-    w->display_storage();
-    w->display_position_map();
     w->write(2,2200);
     w->write(1,1100);
     w->display_storage();
     w->display_position_map();
-    
-    // cout<<w->read(0)<<" "<<w->read(1)<<" "<<w->read(2)<<" "<<w->read(3)<<" "<<w->read(4);
+    w->write(0,10);
+    w->write(3,3300);
+    w->write(0,1001);
+    w->write(2,2200);
+    w->display_storage();
+    w->display_position_map();
+}
+
+int main()
+{
+    test();
     return 0;
 }

@@ -2,6 +2,12 @@
 
 using namespace std;
 
+WoOramDataStore::WoOramDataStore()
+{
+    for(int i=0; i<N; i++)
+        position_map[i] = i;
+}
+
 void WoOramDataStore::display_main_area()
 {
     for(int i=0; i<N; i++)
@@ -16,18 +22,8 @@ void WoOramDataStore::display_holding_area()
 
 int WoOramDataStore::get_pos(int logical_address)
 {
-    try
-    {
-        int physical_address = position_map.at(logical_address);
-        return physical_address;
-    }
-    catch(const std::exception& e)
-    {
-        cout<<"Logical Address "<<logical_address<<" does not have any data\n"<<endl;
-        return logical_address;
-    }
-    
-    
+    int physical_address = position_map[logical_address];
+    return physical_address;
 }
 
 void WoOramDataStore::set_pos(int logical_address, int physical_address)

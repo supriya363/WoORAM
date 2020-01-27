@@ -5,6 +5,7 @@ using namespace std;
 
 void WoOram :: write(int address, int new_data)
 {
+    assert( address >= 0 && address <= wooram->N);
     int i = write_access_counter;
     int N = wooram->N;
         /*
@@ -32,6 +33,7 @@ void WoOram :: write(int address, int new_data)
 
 int WoOram :: read(int logical_address)
 {
+    assert( logical_address >= 0 && logical_address <= wooram->N);
     int physical_address = wooram->get_pos(logical_address);
     int data = decrypt(wooram->physical_storage[physical_address]);
     return data;
@@ -55,10 +57,9 @@ void WoOram :: display_storage()
 
 void WoOram :: display_position_map()
 {
-    map<int, int> m = wooram->position_map;
-    map<int, int>::iterator it;
-    for(it = m.begin(); it != m.end(); it++)
+    vector<int> m = wooram->position_map;
+    for(int i=0; i<wooram->N; i++)
     {
-        cout<<"Logical Address : "<<it->first<<", Physical Address : "<<it->second<<endl;
+        cout<<"Logical Address : "<<i<<", Physical Address : "<<m[i]<<endl;
     }
 }
