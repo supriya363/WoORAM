@@ -108,8 +108,10 @@ void write_access(vector<int> &arr, WoOram *w, int address, int newdata)
 void test2()
 {
     int size = STORAGE_SIZE * NbyM_FACTOR; 
+    cout<<size<<endl;
     vector<int> simple_array(size);
     WoOram *w = new WoOram();
+    srand(time(0)); 
     for(int i=0; i<500000; i++)
     {
         cout<<"Access Number ->"<<i<<endl;
@@ -122,10 +124,24 @@ void test2()
 
     cout<<"All assertions passed"<<endl;
 }
+
+void test3()
+{
+    int N = 10, M = 5;
+    for(int i=0; i<10; i++)
+    {
+        int start = (int)(i*(N/(double)M))%N;
+        int endpoint = ((int)((i+1)*(N/(double)M))-1)%N;
+        cout<<i<<"::"<<start<<"::"<<endpoint<<endl;
+    }
+    
+}
+
 int main()
 {
     // see_access_pattern();
     // test();
     test2();
+    // test3();
     return 0;
 }

@@ -1,7 +1,7 @@
 #ifndef WOORAM_H
 #define WOORAM_H
-#define STORAGE_SIZE 30000
-#define NbyM_FACTOR 2/3
+#define STORAGE_SIZE 300
+#define NbyM_FACTOR 1/3
 #include <bits/stdc++.h>
 
 using namespace std;
