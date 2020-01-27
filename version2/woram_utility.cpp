@@ -16,7 +16,7 @@ void WoOramDataStore::display_main_area()
 
 void WoOramDataStore::display_holding_area()
 {
-    for(int i=N; i<2*N; i++)
+    for(int i=N; i<N+M; i++)
         cout<<"Address : "<<i<<", Data : "<<physical_storage[i]<<endl;
 }
 

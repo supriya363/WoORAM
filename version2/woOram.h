@@ -1,6 +1,7 @@
 #ifndef WOORAM_H
 #define WOORAM_H
-#define STORAGE_SIZE 10
+#define STORAGE_SIZE 15
+#define NbyM_FACTOR 2/3
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -9,7 +10,8 @@ class WoOramDataStore
 {
     public:
     WoOramDataStore();
-    const int N = STORAGE_SIZE/2;
+    const int N = STORAGE_SIZE * NbyM_FACTOR;
+    const int M = STORAGE_SIZE - N;
     vector<int> physical_storage = vector<int>(STORAGE_SIZE);
     vector<int> position_map = vector<int>(N);
     void display_main_area();
