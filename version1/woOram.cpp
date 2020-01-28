@@ -17,7 +17,7 @@ void WoOram :: write(int address, int new_data)
     int new_address = N + (i%N);
     wooram->physical_storage[new_address] = encrypt(new_data);  //Step 1
     wooram->set_pos(address, new_address);                      //Step 2
-    write_access_counter = (write_access_counter + 1)%N;
+    write_access_counter = write_access_counter + 1;
     cout<<"Done Writing"<<endl;
     if (write_access_counter == 0)
     {

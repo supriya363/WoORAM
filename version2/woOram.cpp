@@ -9,13 +9,14 @@ void WoOram :: write(int address, int new_data)
     int i = write_access_counter;
     int N = wooram->N;
     int M = wooram->M;
+
         /*
             1. Write to holding Area
             2. Update Position Map
             3. Refresh N/M Main Area Blocks
             4. Increment Counter
         */
-    cout<<"Write to Physical Block -> "<<i<<endl;
+    // cout<<"Write to Physical Block -> "<<N + (i%M)<<endl;
     int new_address = N + (i%M);
     wooram->physical_storage[new_address] = encrypt(new_data);  //Step 1
     wooram->set_pos(address, new_address);                      //Step 2
@@ -23,7 +24,7 @@ void WoOram :: write(int address, int new_data)
     //Step 3
     int start = (int)(i*(N/(double)M))%N;
     int end = ((int)((i+1)*(N/(double)M))-1)%N;
-    // int end = (endpoint < 0)? endpoint: endpoint%N;
+
     for(int addr=start; addr<=end; addr++)
     {
         // cout<<"Write(Refresh) to Physical Block -> "<<addr<<endl;
@@ -33,7 +34,7 @@ void WoOram :: write(int address, int new_data)
         wooram->set_pos(addr, addr);         
     }
 
-    write_access_counter = (write_access_counter + 1)%N; //Step 4
+    write_access_counter++;  //Step 4
 }
 
 int WoOram :: read(int logical_address)

@@ -117,7 +117,7 @@ void test2()
         cout<<"Access Number ->"<<i<<endl;
         int addr = rand()%(size);
         int data = rand();
-        cout<<addr<<"::"<<data<<endl;
+        // cout<<addr<<"::"<<data<<endl;
         write_access(simple_array, w, addr, data);
         check_reads(simple_array, w);
     }
@@ -127,8 +127,8 @@ void test2()
 
 void test3()
 {
-    int N = 10, M = 5;
-    for(int i=0; i<10; i++)
+    int N = 5, M = 10;
+    for(int i=0; i<20; i++)
     {
         int start = (int)(i*(N/(double)M))%N;
         int endpoint = ((int)((i+1)*(N/(double)M))-1)%N;
